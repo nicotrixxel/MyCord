@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chatroom</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    #chatContainer {
+      height: 300px;
+      border: 1px solid #ccc;
+      overflow-y: scroll;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    #chatContainer p {
+      margin: 5px 0;
+    }
+
+    input[type="text"],
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Chatroom</h2>
+    <div id="chatContainer"></div>
+    <form id="chatForm">
+      <input type="text" id="messageInput" placeholder="Enter your message" required>
+      <input type="submit" value="Send">
+    </form>
+  </div>
+
+  <script>
+    const chatContainer = document.getElementById("chatContainer");
+    const chatForm = document.getElementById("chatForm");
+    const messageInput = document.getElementById("messageInput");
+
+    chatForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const message = messageInput.value;
+      // Senden der Nachricht an den Server (AJAX-Anfrage)
+      // Hier kannst du den Code einfügen, um die Nachricht an den Server zu senden
+
+      // Einfügen der Nachricht in den Chatroom-Container
+      const messageElement = document.createElement("p");
+      messageElement.textContent = "User: " + message;
+      chatContainer.appendChild(messageElement);
+
+      // Zurücksetzen des Eingabefelds
+      messageInput.value = "";
+    });
+  </script>
+</body>
+</html>
